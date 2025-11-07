@@ -8,7 +8,6 @@ import java.io.FileReader;
 public class ArbolArchivo <E>{
     public ArbolBinarioOrden<Integer> crearArbol(String nombreArchivo) throws Exception {
         ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
-        ArbolBinarioOrden<Integer> arbolBinarioCreado = new ArbolBinarioOrden<>();
         FileReader archivo;
         BufferedReader lector;
         String cadena;
@@ -29,15 +28,5 @@ public class ArbolArchivo <E>{
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
-/*
-        int longitudArbol = listaArbolCreado.longitud();
-        while(longitudArbol>0){
-            arbolBinarioCreado.insertar(listaArbolCreado.extraerDeListaArbol(1));
-            longitudArbol-=1;
-        }
-
-        arbolBinarioCreado.recorridoAmplitud();*/
-
-        //listaArbolCreado.imprimir();
     }
 }
