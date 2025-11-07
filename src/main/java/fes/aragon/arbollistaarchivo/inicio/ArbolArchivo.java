@@ -5,8 +5,8 @@ import unam.fes.aragon.dinamicas.arboles.ArbolBinarioOrden;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class ArbolArchivo {
-    public static void main(String[] args) throws Exception {
+public class ArbolArchivo <E>{
+    public ArbolBinarioOrden<Integer> crearArbol(String nombreArchivo) throws Exception {
         ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
         ArbolBinarioOrden<Integer> arbolBinarioCreado = new ArbolBinarioOrden<>();
         FileReader archivo;
@@ -16,7 +16,7 @@ public class ArbolArchivo {
         ArbolBinarioArreglo<Integer> listaArbolCreado = new ArbolBinarioArreglo<>();
 
         try{
-            archivo = new FileReader("DatosArbol.txt");
+            archivo = new FileReader(nombreArchivo);
             lector  = new BufferedReader(archivo);
 
             while ((cadena = lector.readLine()) != null){
@@ -25,6 +25,7 @@ public class ArbolArchivo {
                     listaArbolCreado.insertar(Integer.parseInt(s));
                 }
             }
+            return listaArbolCreado.arbolBinarioCreado;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
@@ -37,6 +38,6 @@ public class ArbolArchivo {
 
         arbolBinarioCreado.recorridoAmplitud();*/
 
-        listaArbolCreado.imprimir();
+        //listaArbolCreado.imprimir();
     }
 }
