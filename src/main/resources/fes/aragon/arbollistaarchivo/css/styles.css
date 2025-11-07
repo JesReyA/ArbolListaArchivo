@@ -1,0 +1,11 @@
+#subirArchivo{
+ -fx-border-color: #C9C9C9;
+ -fx-border-radius: 10px;
+ -fx-background-color: #E8E8E8;
+ -fx-border-width: 5px;
+ -fx-border-style: dashed;
+}
+
+#buttonElegirArchivo, #obtenerArbol{
+    -fx-background-radius: 10px;
+}

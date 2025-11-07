@@ -1,0 +1,42 @@
+package fes.aragon.arbollistaarchivo.inicio;
+
+import unam.fes.aragon.dinamicas.arboles.ArbolBinarioOrden;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class ArbolArchivo {
+    public static void main(String[] args) throws Exception {
+        ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
+        ArbolBinarioOrden<Integer> arbolBinarioCreado = new ArbolBinarioOrden<>();
+        FileReader archivo;
+        BufferedReader lector;
+        String cadena;
+        String[] datoIndividual;
+        ArbolBinarioArreglo<Integer> listaArbolCreado = new ArbolBinarioArreglo<>();
+
+        try{
+            archivo = new FileReader("DatosArbol.txt");
+            lector  = new BufferedReader(archivo);
+
+            while ((cadena = lector.readLine()) != null){
+                datoIndividual = cadena.split(" ");
+                for (String s : datoIndividual) {
+                    listaArbolCreado.insertar(Integer.parseInt(s));
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+/*
+        int longitudArbol = listaArbolCreado.longitud();
+        while(longitudArbol>0){
+            arbolBinarioCreado.insertar(listaArbolCreado.extraerDeListaArbol(1));
+            longitudArbol-=1;
+        }
+
+        arbolBinarioCreado.recorridoAmplitud();*/
+
+        listaArbolCreado.imprimir();
+    }
+}

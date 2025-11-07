@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fes.aragon.arbollistaarchivo.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="126.0" layoutX="-8.0" stroke="BLACK" strokeType="INSIDE" width="814.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.21282589435577393" green="0.5131579041481018" blue="0.07364766299724579" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <VBox fx:id="subirArchivo" alignment="CENTER" layoutX="97.0" layoutY="182.0" prefHeight="321.0" prefWidth="607.0">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" translateY="-40.0">
+               <image>
+                  <Image url="@imagenes/documento.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonElegirArchivo" mnemonicParsing="false" prefHeight="51.0" prefWidth="280.0" text="Elegir el archivo desde mi ordenador" translateY="10.0" />
+         </children>
+      </VBox>
+      <Button fx:id="obtenerArbol" disable="true" layoutX="594.0" layoutY="43.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="128.0" text="Obtener Arbol" />
+   </children>
+</AnchorPane>
