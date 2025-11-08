@@ -16,7 +16,7 @@ import static java.lang.Math.pow;
 
 public class Controller {
     @FXML
-    Button buttonElegirArchivo, obtenerArbol;
+    Button buttonElegirArchivo;
     @FXML
     TextArea visualizacionArbol;
 
@@ -32,12 +32,11 @@ public class Controller {
         archivoElegido = fileChooser.showOpenDialog(stage);
         if (archivoElegido != null) {
             mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
-            visualizacionArbol.setText("hola");
             for(int i=0; i<nuevoArbol.longitud(); i++) {
                 if (i + 1 == pow(2, i)) {
-                    visualizacionArbol.setText("\n");
+                    visualizacionArbol.appendText("\n");
                 }
-                visualizacionArbol.setText(Integer.toString(nuevoArbol.obtenerNodo(i+1)));
+                visualizacionArbol.appendText(Integer.toString(nuevoArbol.obtenerNodo(i+1)));
             }
         }
     }
