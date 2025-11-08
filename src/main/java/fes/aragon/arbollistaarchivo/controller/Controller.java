@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+import static java.lang.Math.pow;
 
 public class Controller {
     @FXML
@@ -29,18 +30,23 @@ public class Controller {
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         fileChooser.getExtensionFilters().addAll(ex1);
         archivoElegido = fileChooser.showOpenDialog(stage);
-        if(archivoElegido != null){
-            mostrarAlerta(Alert.AlertType .INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
-            visualizacionArbol.setText(nuevoArbol.crearArbol(archivoElegido.getAbsolutePath()).toString());
+        if (archivoElegido != null) {
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
+            visualizacionArbol.setText("hola");
+            for(int i=0; i<nuevoArbol.longitud(); i++) {
+                if (i + 1 == pow(2, i)) {
+                    visualizacionArbol.setText("\n");
+                }
+                visualizacionArbol.setText(Integer.toString(nuevoArbol.obtenerNodo(i+1)));
+            }
         }
     }
 
-    private  void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje){
+    private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje){
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-
 }

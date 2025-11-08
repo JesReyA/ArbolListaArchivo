@@ -62,4 +62,8 @@ public class ArbolBinarioArreglo<E>{
     public int longitud (){
         return arbolBinarioLista.getLongitud();
     }
+
+    public E obtenerNodo(int indice){
+        return arbolBinarioLista.obtenerNodo(indice);
+    }
 }

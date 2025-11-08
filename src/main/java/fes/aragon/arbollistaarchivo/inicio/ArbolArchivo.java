@@ -6,13 +6,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class ArbolArchivo <E>{
+    ArbolBinarioArreglo<Integer> listaArbolCreado = new ArbolBinarioArreglo<>();
     public ArbolBinarioOrden<Integer> crearArbol(String nombreArchivo) throws Exception {
         ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
         FileReader archivo;
         BufferedReader lector;
         String cadena;
         String[] datoIndividual;
-        ArbolBinarioArreglo<Integer> listaArbolCreado = new ArbolBinarioArreglo<>();
+
 
         try{
             archivo = new FileReader(nombreArchivo);
@@ -28,5 +29,13 @@ public class ArbolArchivo <E>{
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public int longitud(){
+        return listaArbolCreado.longitud();
+    }
+
+    public Integer obtenerNodo(int indice){
+        return listaArbolCreado.obtenerNodo(indice);
     }
 }
