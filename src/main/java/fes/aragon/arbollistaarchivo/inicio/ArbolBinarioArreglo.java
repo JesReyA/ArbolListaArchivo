@@ -63,7 +63,7 @@ public class ArbolBinarioArreglo<E>{
                 if (nodo1!=null){
                     sb.append("(").append(nodo1).append(")").append(" ");
                 } else {
-                    sb.append("( )");
+                    sb.append("(Null)");
                 }
                 indice++;
             }
