@@ -31,14 +31,19 @@ public class Controller {
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         fileChooser.getExtensionFilters().addAll(ex1);
         archivoElegido = fileChooser.showOpenDialog(stage);
-        if (archivoElegido != null) {
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
-            nuevoArbol.crearArbol(archivoElegido.getAbsolutePath());
-            String impresion=nuevoArbol.listaArbolCreado.imprimirNiveles();
-            visualizacionArbol.setText(impresion);
-            System.out.println(impresion);
-            
+        try{
+            if (archivoElegido != null) {
+                mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
+                nuevoArbol.crearArbol(archivoElegido.getAbsolutePath());
+                String impresion=nuevoArbol.listaArbolCreado.imprimirNiveles();
+                visualizacionArbol.setText(impresion);
+                System.out.println(impresion);
+
+            }
+        }catch (Exception e1){
+            mostrarAlerta(Alert.AlertType.ERROR,"Advertencia", e1.getMessage()+"\nRevise el archivo ingresado y reintente.");
         }
+
     }
 
     private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje){

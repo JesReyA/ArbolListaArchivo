@@ -13,7 +13,7 @@ public class ArbolArchivo <E>{
 //        ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
         File file =new File(nombreArchivo);
         if (!file.exists()){
-            throw new FileNotFoundException("Archivo n encontrao");
+            throw new FileNotFoundException("Archivo no encontrado ");
         }
         if (!file.canRead()){
             throw new RuntimeException("El archivo no es legible ");
@@ -31,21 +31,21 @@ public class ArbolArchivo <E>{
                 }
                 String[]datoIndividual = cadena.split(" ");
 
-                for (String s : datoIndividual) { //ojo aquí
+                for (String s : datoIndividual) { //ojo aquí pass
                     if (!s.trim().isEmpty()){
                         try{
                             int valor = Integer.parseInt(s.trim());
                             listaArbolCreado.insertar(valor);
 
                         }catch (NumberFormatException e){
-                            throw new RuntimeException("En el archivo hay valores nan");
+                            throw new RuntimeException("En el archivo hay valores no mumericos ");
                         }
                     }
                 }
             }
             return listaArbolCreado.arbolBinarioCreado;
         } catch (Exception e) {
-            throw new RuntimeException("Error en la lectura del archivo"+e.getMessage() );
+            throw new RuntimeException("Error en la lectura del archivo "+e.getMessage() );
         }
     }
 
