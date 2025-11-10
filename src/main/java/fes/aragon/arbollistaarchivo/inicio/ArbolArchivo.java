@@ -10,7 +10,6 @@ import java.io.FileReader;
 public class ArbolArchivo <E>{
     public ArbolBinarioArreglo<Integer> listaArbolCreado = new ArbolBinarioArreglo<>();
     public ArbolBinarioOrden<Integer> crearArbol(String nombreArchivo) throws Exception {
-//        ManejoArchivos <String>  archivoIngresoDatosArbol = new ManejoArchivos<>();
         File file =new File(nombreArchivo);
         if (!file.exists()){
             throw new FileNotFoundException("Archivo no encontrado ");

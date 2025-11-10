@@ -40,22 +40,6 @@ public class ArbolBinarioArreglo<E>{
                 arbolBinarioLista.agregarEnCola(null);
             }
     }
-
-    //recorridos
-    public void inorder(){
-
-    }
-
-    public void imprimir(){
-        arbolBinarioLista.imprimirLista();
-    }
-
-    public E extraerDeListaArbol(int posicion){
-        E dato = arbolBinarioLista.obtenerNodo(posicion);
-        arbolBinarioLista.eliminarEnIndice(posicion);
-        return dato;
-    }
-
     public void borrar(){
         arbolBinarioLista.eliminarEnCabeza();
     }
@@ -71,14 +55,15 @@ public class ArbolBinarioArreglo<E>{
         StringBuilder sb =new StringBuilder();
         int nivel=0,indice =0;
         int elementosPorNivel= 1;
+        sb.append("\n\n");
         while (indice<arbolBinarioLista.getLongitud()){
-            sb.append("Nivel ").append(nivel).append(": ");
+            sb.append("                     Nivel ").append(nivel).append(": ");
             for (int i = 0; i < elementosPorNivel&&indice< arbolBinarioLista.getLongitud(); i++) {
                 E nodo1=arbolBinarioLista.obtenerNodo(indice);
                 if (nodo1!=null){
-                    sb.append(nodo1).append(" ");
-                }else {
-                    sb.append("Null");
+                    sb.append("(").append(nodo1).append(")").append(" ");
+                } else {
+                    sb.append("( )");
                 }
                 indice++;
             }
