@@ -72,14 +72,15 @@ public class ArbolBinarioArreglo<E>{
         int nivel=0,indice =0;
         int elementosPorNivel= 1;
         while (indice<arbolBinarioLista.getLongitud()){
-            sb.append("Nivel ").append(nivel).append(":");
-            for (int i = 0; i < elementosPorNivel&&indice< arbolBinarioLista.getLongitud(); i++, indice++) {
+            sb.append("Nivel ").append(nivel).append(": ");
+            for (int i = 0; i < elementosPorNivel&&indice< arbolBinarioLista.getLongitud(); i++) {
                 E nodo1=arbolBinarioLista.obtenerNodo(indice);
                 if (nodo1!=null){
                     sb.append(nodo1).append(" ");
                 }else {
                     sb.append("Null");
                 }
+                indice++;
             }
             sb.append("\n");
             nivel++;

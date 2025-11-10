@@ -1,6 +1,7 @@
 package fes.aragon.arbollistaarchivo.controller;
 
 import fes.aragon.arbollistaarchivo.inicio.ArbolArchivo;
+import fes.aragon.arbollistaarchivo.inicio.ArbolBinarioArreglo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -20,9 +21,9 @@ public class Controller {
     @FXML
     TextArea visualizacionArbol;
 
-    FileChooser.ExtensionFilter ex1 = new FileChooser.ExtensionFilter("TXT", "*txt");
-    ArbolArchivo nuevoArbol = new ArbolArchivo();
-    File archivoElegido;
+    private FileChooser.ExtensionFilter ex1 = new FileChooser.ExtensionFilter("TXT", "*txt");
+    private ArbolArchivo nuevoArbol = new ArbolArchivo();
+    private File archivoElegido;
 
     @FXML
     public void handleElegirArchivo(ActionEvent e) throws Exception {
@@ -32,12 +33,10 @@ public class Controller {
         archivoElegido = fileChooser.showOpenDialog(stage);
         if (archivoElegido != null) {
             mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Se eligió el archivo correctamente \n Presiona para obtener tu arbol");
-            for(int i=0; i<nuevoArbol.longitud(); i++) {
-                if (i + 1 == pow(2, i)) {
-                    visualizacionArbol.appendText("\n");
-                }
-                visualizacionArbol.appendText(Integer.toString(nuevoArbol.obtenerNodo(i+1)));
-            }
+            nuevoArbol.crearArbol(archivoElegido.getAbsolutePath());
+            String impresion=nuevoArbol.listaArbolCreado.imprimirNiveles();
+            visualizacionArbol.setText(impresion);
+            System.out.println(impresion);
             
         }
     }
