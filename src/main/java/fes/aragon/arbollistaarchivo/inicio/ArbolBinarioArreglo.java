@@ -66,4 +66,25 @@ public class ArbolBinarioArreglo<E>{
     public E obtenerNodo(int indice){
         return arbolBinarioLista.obtenerNodo(indice);
     }
+
+    public String imprimirNiveles() {
+        StringBuilder sb =new StringBuilder();
+        int nivel=0,indice =0;
+        int elementosPorNivel= 1;
+        while (indice<arbolBinarioLista.getLongitud()){
+            sb.append("Nivel ").append(nivel).append(":");
+            for (int i = 0; i < elementosPorNivel&&indice< arbolBinarioLista.getLongitud(); i++, indice++) {
+                E nodo1=arbolBinarioLista.obtenerNodo(indice);
+                if (nodo1!=null){
+                    sb.append(nodo1).append(" ");
+                }else {
+                    sb.append("Null");
+                }
+            }
+            sb.append("\n");
+            nivel++;
+            elementosPorNivel*=2;
+        }
+    return sb.toString();
+    }
 }

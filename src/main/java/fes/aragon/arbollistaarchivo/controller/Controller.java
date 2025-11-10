@@ -38,6 +38,7 @@ public class Controller {
                 }
                 visualizacionArbol.appendText(Integer.toString(nuevoArbol.obtenerNodo(i+1)));
             }
+            
         }
     }
 
